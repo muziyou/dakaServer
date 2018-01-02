@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.org.fjiot.dakaServer.mapper.CompanyMapper">
+	<select id="listCompany" resultType="Company">
+		select * from DK_COMPANY
+	</select>
+	<insert id="addCompany" parameterType="Company">
+		<selectKey resultType="string" keyProperty="id"
+			order="BEFORE">
+			select sys_guid() from dual
+		</selectKey>
+		insert into DK_COMPANY (ID, NAME, ENABLE, REMARK) values (#{id}, #{name}, #{enable}, #{remark, jdbcType=VARCHAR})
+	</insert>
+	<delete id="deleteCompany" parameterType="Company">
+		delete from DK_COMPANY where ID = #{id}
+	</delete>
+	<update id="editCompany" parameterType="Company">
+		update DK_COMPANY set NAME = #{name}, REMARK = #{remark, jdbcType=VARCHAR}, ENABLE = #{enable} where ID = #{id}
+	</update>
+	<select id="listCompanyByName" parameterType="string" resultType="Company">
+		select * from DK_COMPANY where NAME like '%'||#{name}||'%'
+	</select>
+	<select id="companyById" parameterType="string" resultType="Company">
+		select * from DK_COMPANY where ID = #{id}
+	</select>
+</mapper>

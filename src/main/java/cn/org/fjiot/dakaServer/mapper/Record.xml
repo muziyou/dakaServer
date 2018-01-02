@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.org.fjiot.dakaServer.mapper.RecordMapper">
+	<insert id="addRecord" parameterType="Record">
+		<selectKey resultType="string" keyProperty="id" order="BEFORE">
+			select sys_guid() from dual
+		</selectKey>
+		insert into DK_RECORD (ID, DETAIL, DATA, WEEK, TIME, REMARK, USER_ID) values (#{id}, #{detail}, #{date}, #{week}, #{time}, #{remark}, #{userId})
+	</insert>
+	<select id="listRecord" resultType="Record">
+		select * from DK_RECORD
+	</select>
+	<select id="recordByUserIdDateRemark" resultType="Record">
+		select * from DK_RECORD where USER_ID = #{userId} and DATA = #{date} and REMARK = #{remark}
+	</select>
+	<select id="listRecordByQuery">
+		select * from DK_USER u left join DK_RECORD r on u.ID = r.USER_ID order by u.NAME desc where r.DATA = '2017年12月13日'
+	</select>
+</mapper>

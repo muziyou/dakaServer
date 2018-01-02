@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.org.fjiot.dakaServer.mapper.WifiMapper">
+	<select id="listWifi" resultType="Wifi">
+		select * from DK_WIFI
+	</select>
+	<select id="listWifiByMac" resultType="Wifi" parameterType="string">
+		select * from DK_WIFI where MAC = #{mac}
+	</select>
+	<insert id="addWifi" parameterType="Wifi">
+		<selectKey resultType="string" keyProperty="id"
+			order="BEFORE">
+			select sys_guid() from dual
+		</selectKey>
+		insert into DK_WIFI (ID, NAME, MAC, REMARK, COMPANY_ID) values (#{id}, #{name}, #{mac}, #{remark, jdbcType=VARCHAR}, #{companyId})
+	</insert>
+	<delete id="deleteWifi" parameterType="Wifi">
+		delete from DK_WIFI where ID = #{id}
+	</delete>
+	<update id="editWifi" parameterType="Wifi">
+		update DK_WIFI set NAME = #{name}, MAC = #{mac}, REMARK = #{remark, jdbcType=VARCHAR}, COMPANY_ID = #{companyId} where ID = #{id}
+	</update>
+	<select id="listWifiByName" parameterType="string" resultType="Wifi">
+		select * from DK_WIFI where NAME = #{name}
+	</select>
+	<select id="wifiById" parameterType="string" resultType="Wifi">
+		select * from DK_WIFI where ID = #{id}
+	</select>
+	<select id="wifiByMacNameAndCompanyId" resultType="Wifi">
+		select * from DK_WIFI where MAC = #{mac} and NAME = #{name} and COMPANY_ID = #{companyId} 
+	</select>
+</mapper>

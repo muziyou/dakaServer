@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+a {
+	text-decoration: none;
+	color: #FFF;
+}
+a:hover {
+	color: #F00;
+}
+div#container {
+	
+}
+div#header {
+	width: 100%;
+	height: 10%;
+	margin: 5px auto;
+}
+div#header div#header-left {
+	background: #CCC;
+	width: 240px;
+	float: left;
+	height: 40%;
+}
+div#header div#header-left ul {
+	list-style: none;
+	margin: 0;
+}
+div#header div#header-left ul li {
+	margin: 5px;
+	float: left;
+}
+div#header div#header-right {
+	background: #CCC;
+	height: 40%;
+	margin-left: 240px;
+}
+div#header div#header-right ul {
+	list-style: none;
+}
+div#header div#header-right ul li {
+	float: right;
+	margin: 5px;
+}
+div#header div#header-bottom {
+	background: #0CC;
+	height: 60%;
+	margin-bottom: 5px;
+	clear: both;
+}
+div#header div#header-bottom ul {
+	width: 480px;
+	margin: 0 auto;
+	list-style: none;
+}
+div#header div#header-bottom ul li {
+	float: left;
+	margin: 10px;
+	position: relative;
+}
+div#header div#header-bottom ul li ul {
+	display: none;
+	position: absolute;
+	left: 0px;
+	top: 100px;
+	width: 500px;
+}
+div#header div#header-bottom ul li:hover ul {
+	display: block;
+}
+div#side {
+	background: #9FF;
+	width: 240px;
+	height: 80%;
+	float: left;
+}
+div#main {
+	background: #9CF;
+	height: 80%;
+	margin-left: 245px;
+}
+div#footer {
+	background: #9FC;
+	width: 100%;
+	height: 10%;
+	margin: 5px auto;
+}
+</style>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<div id="header-left">
+				<ul>
+					<li><a href="#">加入收藏</a></li>
+					<li><a href="#">欢迎来打凯娅尼</a></li>
+				</ul>
+			</div>
+			<div id="header-right">
+				<ul>
+					<li><a href="#">我的购物车</a></li>
+					<li><a href="#">消费者告知书</a></li>
+					<li><a href="#">帮助中心</a></li>
+					<li><a href="#">我的账户</a></li>
+					<li><a href="#">注册</a></li>
+					<li><a href="#">登录</a></li>
+					<li><a href="#">在线客服</a></li>
+				</ul>
+			</div>
+			<div id="header-bottom">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li><a href="#">关于凯娅尼</a>
+						<ul>
+							<li>有关凯尼亚</li>
+							<li><a href="#">公司简介</a></li>
+						</ul>
+						<ul>
+							<li>文化</li>
+							<li><a href="#">携手关爱计划</a></li>
+						</ul>
+						<ul>
+							<li>最新消息</li>
+							<li><a href="#">最新消息</a></li>
+						</ul>
+						<ul>
+							<li>媒体</li>
+							<li><a href="#">影片视频</a></li>
+							<li><a href="#">热门话题</a></li>
+						</ul>
+					</li>
+					<li><a href="#">产品商城</a></li>
+					<li><a href="#">快速下单</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="side"></div>
+		<div id="main"></div>
+		<div id="footer"></div>
+	</div>
+</body>
+</html>
